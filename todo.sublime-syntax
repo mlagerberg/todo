@@ -7,24 +7,8 @@
 # as published by Sam Hocevar. See the COPYING file for more details.
 
 
-# Color legend WHEN USING MONOKAI
-#
-# GREY    = comment
-# RED     = keyword.control
-# ORANGE  = italic: variable.parameter
-# YELLOW  = string.quoted.double.json
-# WHITE   = keyword.operator
-# GREEN   = entity.name
-# BLUE    = variable.function (italic: storage.type)
-# PURPLE  = constant.numeric
-#
-# BOLD    = markup.heading
-# ITALIC  = markup.italic
-#
-# See http://www.sublimetext.com/docs/3/syntax.html
-#
 name: TODO
-file_extensions: [txt, md]
+file_extensions: [txt]
 scope: source.json
 contexts:
   main:

@@ -1,7 +1,18 @@
 
-# To do format
+# A new, nameless, plaintext To-Do format
 
 This is a newish format for tracking task lists in plain text format.
+It revolves around checkboxes
+
+```
+[ ] 
+```
+
+that can be checked off
+
+```
+[v]
+```
 
 Using this format you can keep track of your daily tasks and keep a complete
 log of everything you've done.
@@ -18,36 +29,44 @@ Wed 20 May
 	- this one is not
 ``` 
 
+Keep reading for the specs below, or jump straight to a [complete example](./example.txt). 
 
-# Highlighter
+# Sublime Text highlighter
 
 This repo includes a syntax file for Sublime Text 3 which, when used with
 the Monokai theme, nicely highlights items and greyes out completed task
 in a way that makes it easy to see the state of your task list at a glance.
+Installation instructions [below](#installation-instructions).
 
-![TODO highlighted example](example_images/sample_main.png)
+![Highlighted example](example_images/sample_main.png)
 
 
 # Questions
 
-#### When not to use this
-
-- if you are about support by other apps - there are none!
-
 #### Why plain text?
 
-- Compatible with all text editors
-- Compatible with cloud solutions (dropbox, git)
+Competing spec [todo.txt][todotxt] explains is better than I can:
 
+> Plain text is software and operating system agnostic. It's searchable, portable, lightweight, and easily manipulated. It's unstructured. It works when someone else's web server is down or your Outlook .PST file is corrupt. There's no exporting and importing, no databases or tags or flags or stars or prioritizing or _insert company name here_-induced rules on what you can and can't do with it.
+
+To add onto this: it is compatible with any cloud solutions, like Dropbox or Git.
+
+#### When _not_ to use this format
+
+This format is new and not supported by any clients other than plain text editors.
+If you care about support by other apps with a nice UI, don't use this!
 
 #### Why not [todo.txt][todotxt]?
 
-I found it not easily readable at a glance. Each task is confined to one line, there are no subtasks,
-and the tasks, checkmarks and timestamps are all over the place. I preferred something
-that looked like a bulleted list with checkboxes more than anything else, and I found
-prioritizing items by starting lines with `(A)` or `(B)` unclear and unpractical.
+Todo.txt is nice, but it did not fit _my_ needs. So I made something new.
 
-This TODO approach also targets the average, quick, daily to-do list rather than
+I found it not easily readable at a glance. Each task is confined to one line,
+there are no subtasks, and all tasks, checkmarks and timestamps are all over the place.
+I preferred something that looked like a bulleted list with checkboxes more
+than anything else, and I found prioritizing items by starting lines with
+`(A)` or `(B)` unclear and unpractical.
+
+This new to-do approach targets the average, quick, daily to-do list rather than
 an issue tracker for projects. You list what you do today, without categorising
 using tags, project names, due dates or priorities.
 
@@ -57,9 +76,10 @@ If you want to add priority to a task, simply move it to the top.
 
 Markdown checkboxes only allow for two states: done, or not done, and has no room for
 'eh'. It also requires two more characters to add a checkbox: `- [*]`. Yuk!
+Do I have to justify this repo? No, I just like my format ok, leave Britney alone!
 
 
-# Complete definition
+# Complete specs
 
 #### Task states
 
@@ -69,21 +89,21 @@ Tasks and subtasks alike can exist in several states:
 - completed (`[v]`)
 - canceled (`[x]`)
 - may be canceled (`[?]`)
-- may be canceled (`[~]`)
+- maybe completed (`[~]`)
 
 The first 3 speak for themselves, the other two indicate uncertainties. For example,
-if you partially completed a task and are not sure enough if it is 'good enough' yet,
+if you partially completed a task and are not sure yet if it is 'good enough',
 use the `~` tilde to change the color of the task to yellow: it's not greyed
-out yet, it is highlighted so you can easily find it and go back to it.
+out yet, but it is highlighted so you can easily find it and go back to it.
 
 ![Example of task states](example_images/sample_main.png)
 
 
 #### Subtasks
 
-The same goes for subtasks. With exception that they are shaped more like a bulleted
-list (no `[` `]` brackets, and a `-` dash for open items), the state indicators
-have the same effect.
+The same goes for subtasks. With the exception that they are shaped more like a bulleted
+list (no `[` `]` brackets, and a `-` dash for open items). The state indicators
+have the same effect:
 
 ![Example of subtasks](example_images/sample_subtask.png)
 
@@ -123,10 +143,6 @@ The syntax highlighter is not in the Sublime package thing yet.
 On Mac, you can copy the `todo.sublime-syntax` file to `/Library/Application Support/Sublime Text 3/Packages/User/`.
 
 On Windows, to `C:\Users\{username}\AppData\Local\Sublime Text 3\Packages\User\`.
-
-
-# Workflow
-
 
 
 # License
