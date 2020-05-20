@@ -1,10 +1,13 @@
 
 === Issue tracker / changelog ===
 
-[ ] support day names in other languages
-[ ] allow uppercase v and x
-[ ] mark important tasks with a !
-[v] highlight times and time ranges
-[v] support 'maybes'with a question mark
-[v] support more than 1 indentation level
+[ ] Add to the Sublime package manager
+[?] Make it look better in other Sublime themes
+[?] Create highlighter for other editors
+[ ] Support day names in other languages
+[ ] Allow uppercase v and x
+[ ] Mark important tasks with a !
+[v] Highlight times and time ranges
+[v] Support 'maybes'with a question mark
+[v] Support more than 1 indentation level
 

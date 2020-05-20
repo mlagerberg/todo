@@ -25,6 +25,8 @@ This repo includes a syntax file for Sublime Text 3 which, when used with
 the Monokai theme, nicely highlights items and greyes out completed task
 in a way that makes it easy to see the state of your task list at a glance.
 
+![TODO highlighted example](example_images/sample_main.png)
+
 
 # Questions
 
@@ -36,6 +38,7 @@ in a way that makes it easy to see the state of your task list at a glance.
 
 - Compatible with all text editors
 - Compatible with cloud solutions (dropbox, git)
+
 
 #### Why not [todo.txt][todotxt]?
 
@@ -73,6 +76,8 @@ if you partially completed a task and are not sure enough if it is 'good enough'
 use the `~` tilde to change the color of the task to yellow: it's not greyed
 out yet, it is highlighted so you can easily find it and go back to it.
 
+![Example of task states](example_images/sample_main.png)
+
 
 #### Subtasks
 
@@ -80,24 +85,19 @@ The same goes for subtasks. With exception that they are shaped more like a bull
 list (no `[` `]` brackets, and a `-` dash for open items), the state indicators
 have the same effect.
 
+![Example of subtasks](example_images/sample_subtask.png)
+
 When a main task is closed or highlighted, this effects the subtasks too.
+
+![Example of subtasks with states](example_images/sample_subtask_state.png)
 
 
 #### Grouping lists
 
 To make lists of lists, you can add titles and separators:
 
-```
-=== This is a title ===
+![Example of task states](example_images/sample_group.png)
 
-A subtle separator (can be any length)
-
------------------------
-
-And a heavy separator:
-
-=======================
-```
 
 #### Dates
 
@@ -105,35 +105,29 @@ Personally, I don't see this as due dates but rather as the dates on which you p
 to do something. Does 'clean the kitchen' have a due date? Not really, but if you have
 time this Tuesday, that's when you schedule it. Here's an example workflow:
 
-```
-Tue 5
-[ ] Clean the kitchen
+![Example of using dates](example_images/sample_date.png)
 
-Mon 4
-[ ] Do a thing
-
-Sun 3 April
-[ ] make a list
-[v] tick things off
-```
 
 #### Time
 
 Again not a due time, but rather a time indication. "Package will be delivered between 15:00 and 18:00" will
 look like this:
 
-```
-[ ] 15:00 - 18:00 Package delivery
-```
+![Example of using time indication](example_images/sample_time.png)
 
 
 # Installation instructions
 
 The syntax highlighter is not in the Sublime package thing yet.
 
-```
-// TODO
-```
+On Mac, you can copy the `todo.sublime-syntax` file to `/Library/Application Support/Sublime Text 3/Packages/User/`.
+
+On Windows, to `C:\Users\{username}\AppData\Local\Sublime Text 3\Packages\User\`.
+
+
+# Workflow
+
+
 
 # License
 
