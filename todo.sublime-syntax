@@ -1,0 +1,202 @@
+%YAML 1.2
+---
+
+# Copyright © 2020 Mathijs Lagerberg
+# This work is free. You can redistribute it and/or modify it under the
+# terms of the Do What The Fuck You Want To Public License, Version 2,
+# as published by Sam Hocevar. See the COPYING file for more details.
+
+
+# Color legend WHEN USING MONOKAI
+#
+# GREY    = comment
+# RED     = keyword.control
+# ORANGE  = italic: variable.parameter
+# YELLOW  = string.quoted.double.json
+# WHITE   = keyword.operator
+# GREEN   = entity.name
+# BLUE    = variable.function (italic: storage.type)
+# PURPLE  = constant.numeric
+#
+# BOLD    = markup.heading
+# ITALIC  = markup.italic
+#
+# See http://www.sublimetext.com/docs/3/syntax.html
+#
+name: TODO
+file_extensions: [txt, md]
+scope: source.json
+contexts:
+  main:
+
+    # Titles
+    - match: '(===)\s(.*)\s(===)'
+      scope: markup.heading
+      captures:
+        1: keyword.control
+        3: keyword.control
+
+    # Open tasks start with '[ ]'
+    # We grey out the brackets
+    - match: '(\[\s\])'
+      captures:
+        1: comment.line
+      push: task_open
+    # Finished tasks start with '[v]'
+    # - Grey out the brackets
+    # - Green checkmark (=v)
+    - match: '\[(v)\]'
+      captures:
+        1: entity.name
+      push: task_done
+    # Canceled with '[x]'
+    # - Grey out the brackets
+    # - Red cross (=x)
+    - match: '\[(x)\]'
+      captures:
+        1: keyword.control
+      push: task_canceled
+    # And with a ~ they are partially done
+    # - Grey out the brackets
+    # - Entire line will be yellow
+    - match: '\[(~)\]'
+      captures:
+        1: string.quoted.double.json
+      push: task_semi_done
+    # And with a ? they are mayyyybe done?
+    # - Grey out the brackets
+    # - Entire line will be yellow
+    - match: '\[(\?)\]'
+      captures:
+        1: keyword.control
+      push: task_semi_done
+
+    # Start of a day
+    # Datestamp will be purple, the rest is italic
+    - match: '^(ma|di|wo|woe|do|vr|vrij|za/zo|za|zo)[a-zA-Z0-9\s]*'
+      scope: constant.numeric
+      push: start_of_day
+    - match: '^(Mon|Tue|Wed|Thu|Fri|Sat|Sun)[a-zA-Z0-9\s]*'
+      scope: constant.numeric
+      push: start_of_day
+
+    # Week separator
+    - match: '^-{3,}$'
+      scope: markup.deleted
+
+    # Top separator
+    - match: '^=+$'
+      scope: markup.inserted
+
+    # Timestamps may start at the start of a line too
+    - include: timestamp_line
+
+  # End a yellow block
+  semi_done_eol:
+    - meta_scope: string.quoted.double.json
+    - match: $
+      pop: true
+
+  # Subtasks all end at the end of the line
+  subtask_open:
+    - meta_scope: meta.annotation.parameters
+    - match: $
+      pop: true
+  subtask_done:
+    - meta_scope: comment.line
+    - match: $
+      pop: true
+  subtask_canceled:
+    - meta_scope: comment.block
+    - match: $
+      pop: true
+  subtask_semi_done:
+    - meta_scope: string.quoted.double.json
+    - match: .
+      push: semi_done_eol
+    - match: $
+      pop: true
+
+  start_of_day:
+    - match: '\-'
+      push: day_label
+    - match: $
+      pop: true
+  day_label:
+    - meta_scope: markup.italic
+    - match: $
+      pop: true
+
+  end_task_scope:
+    # Pop off at root
+    - match: ^(?=[^ ])
+      pop: true
+    # pop off at a line with less indention as this scope
+    - match: ^(?!\1)
+      pop: true
+    # pop off at a line with same indention as this scope
+    - match: ^(?=\1[^ ])
+      pop: true
+
+  pop_eol:
+    - match: $
+      pop: true
+
+  task_open:
+    - match: '^(\s{4}|\t)*(-)'
+      captures:
+        1: entity.name
+        2: comment.line
+      scope: entity.name
+      push: subtask_open
+    - match: '^(\s{4}|\t)*x'
+      scope: keyword.control
+      push: subtask_canceled
+    - match: '^(\s{4}|\t)*v'
+      scope: entity.name
+      push: subtask_done
+    - match: '^(\s{4}|\t)*~'
+      scope: string.quoted.double.json
+      push: subtask_semi_done
+    - match: '^(\s{4}|\t)*\?'
+      scope: keyword.control
+      push: subtask_semi_done
+    - include: timestamp_line
+    - include: end_task_scope
+
+  task_semi_done:
+    - meta_scope: string.quoted.double.json
+    - match: '^(\s{4}|\t)*-'
+      scope: entity.name
+      push: subtask_open
+    - match: '^(\s{4}|\t)*x'
+      scope: keyword.control
+      push: subtask_canceled
+    - match: '^(\s{4}|\t)*v'
+      scope: entity.name
+      push: subtask_done
+    - match: '^(\s{4}|\t)*~'
+      scope: constant.numeric
+      push: subtask_semi_done
+    - match: '^(\s{4}|\t)*\?'
+      scope: keyword.control
+      push: subtask_semi_done
+    - include: timestamp_line
+    - include: end_task_scope
+
+  task_done:
+    - meta_scope: comment.line
+    - match: '^(\s{4}|\t)*[\-xv~]'
+      push: subtask_done
+    - include: end_task_scope
+
+  task_canceled:
+    - meta_scope: comment.block
+    - match: '^(\s{4}|\t)*[\-xv~]'
+      scope: keyword.control
+      push: subtask_canceled
+    - include: end_task_scope
+
+  timestamp_line:
+    - match: '[0-9]{1,2}:[0-9]{2}(\s*-\s*[0-9]{1,2}:[0-9]{2})?'
+      scope: variable.function

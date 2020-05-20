@@ -1,0 +1,69 @@
+
+
+=== BUCKET LIST ===
+
+[ ] See the northern lights
+[v] Watch Tiger King
+
+======================================
+
+=== TO DO for 2020 ===
+
+Sat 23 May - weekend!
+[ ] do weekend stuff
+[ ] separate each week, or month, or day, etc. with a line of dashes:
+
+--------------------------------------
+
+Tue 19 May
+[ ] This task is open
+[v] With a checkmark (v), the task is completed
+[x] Crossed out with an x means: this task is canceled
+[~] A squigly line means the task is almost done, partly done, or good enough.
+[?] With a question mark, it is not certain if the task should be done or not.
+[ ] Each task can have subtasks as well:
+	- with a simple dash, as a bullet point of sorts
+	v of course that dash can be changed into a checkmark
+	x or a cross, if canceled
+	~ a tilde
+	? or a question mark however you see fit
+[x] The checkmark in the main task
+	v (when using sublime text)
+	- it crosses all subtasks too
+[v] And completing the main task
+	- completes the subtask
+	x completely
+	~ tilde, x or none: all the same
+[~] But partially completing the main task
+	- highlights the open subtasks in yellow
+	v and completes only the closed subtasks
+[ ] 11:00 stand-up meeting
+[ ] 9:00-10:00 hour long meeting
+
+Mon 18 May - Ascencion day
+[ ] do this task today
+[ ] and this one
+[?] maybe this one too if the other two aren't enough
+
+--------------------------------------
+
+Sun 17 May
+[v] Get this task list up on Github
+[ ] Write a README
+	- list the pros
+	- list the cons
+	v write an example
+
+Sat 16 May - Some label
+[v] eventually, all your task lists
+[v] will look like this
+[v] greyed out, completed
+[x] maybe some are cancelled
+[v] but there should be no white entries anymore!
+[v] only then have you completed all your chores
+[v] 10:00-11:00 completed your meetings
+[v] and can finally have some chill
+
+--------------------------------------
+
+[v] this is the distant past

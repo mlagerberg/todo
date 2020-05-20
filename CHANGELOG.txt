@@ -1,0 +1,10 @@
+
+=== Issue tracker / changelog ===
+
+[ ] support day names in other languages
+[ ] allow uppercase v and x
+[ ] mark important tasks with a !
+[v] highlight times and time ranges
+[v] support 'maybes'with a question mark
+[v] support more than 1 indentation level
+
