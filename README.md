@@ -45,23 +45,23 @@ Installation instructions [below](#installation-instructions).
 
 #### Why plain text?
 
-Competing spec [todo.txt][todotxt] explains is better than I can:
+Competing spec [todo.txt][todotxt] explains it better than I can:
 
 > Plain text is software and operating system agnostic. It's searchable, portable, lightweight, and easily manipulated. It's unstructured. It works when someone else's web server is down or your Outlook .PST file is corrupt. There's no exporting and importing, no databases or tags or flags or stars or prioritizing or _insert company name here_-induced rules on what you can and can't do with it.
 
-To add onto this: it is compatible with any cloud solutions, like Dropbox or Git.
+To add onto this: it is compatible with any cloud solution, like Dropbox or Git.
 
 #### When _not_ to use this format
 
 This format is new and not supported by any clients other than plain text editors.
-If you care about support by other apps with a nice UI, don't use this!
+If you care about support by other apps with a nice UI, or CLI clients, don't use this!
 
 #### Why not [todo.txt][todotxt]?
 
 Todo.txt is nice, but it did not fit _my_ needs. So I made something new.
 
 I found it not easily readable at a glance. Each task is confined to one line,
-there are no subtasks, and all tasks, checkmarks and timestamps are all over the place.
+there are no subtasks; and all tasks, checkmarks and timestamps are all over the place.
 I preferred something that looked like a bulleted list with checkboxes more
 than anything else, and I found prioritizing items by starting lines with
 `(A)` or `(B)` unclear and unpractical.
@@ -74,9 +74,9 @@ If you want to add priority to a task, simply move it to the top.
 
 #### Why not Markdown?
 
-Markdown checkboxes only allow for two states: done, or not done, and has no room for
-'eh'. It also requires two more characters to add a checkbox: `- [*]`. Yuk!
-Do I have to justify this repo? No, I just like my format ok, leave Britney alone!
+Markdown's checkboxes only allow for two states: done, or not done, and has no room for
+'sort ofs'. It also requires two more characters to add a checkbox: `- [*]`. Yuk!
+Do I have to justify this repo? No, I just like my format okay, leave Britney alone!
 
 
 # Complete specs
