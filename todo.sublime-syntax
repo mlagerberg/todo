@@ -160,7 +160,8 @@ contexts:
       scope: entity.name
       push: subtask_done
     - match: '^(\s{4}|\t)*~'
-      scope: constant.numeric
+      #scope: constant.numeric
+      scope: string.quoted.double.json
       push: subtask_semi_done
     - match: '^(\s{4}|\t)*\?'
       scope: keyword.control
@@ -170,13 +171,26 @@ contexts:
 
   task_done:
     - meta_scope: comment.line
-    - match: '^(\s{4}|\t)*[\-xv~]'
+    - match: '^(\s{4}|\t)*-'
+      scope: entity.name
+      push: subtask_done
+    - match: '^(\s{4}|\t)*x'
+      scope: keyword.control
+      push: subtask_done
+    - match: '^(\s{4}|\t)*v'
+      scope: entity.name
+      push: subtask_done
+    - match: '^(\s{4}|\t)*~'
+      scope: string.quoted.double.json
+      push: subtask_done
+    - match: '^(\s{4}|\t)*\?'
+      scope: keyword.control
       push: subtask_done
     - include: end_task_scope
 
   task_canceled:
     - meta_scope: comment.block
-    - match: '^(\s{4}|\t)*[\-xv~]'
+    - match: '^(\s{4}|\t)*[\-xv~?]'
       scope: keyword.control
       push: subtask_canceled
     - include: end_task_scope
