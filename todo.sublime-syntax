@@ -1,12 +1,29 @@
 %YAML 1.2
 ---
 
-# Copyright © 2020 Mathijs Lagerberg
+# Copyright © 2020-2021 Mathijs Lagerberg
+# https://github.com/mlagerberg/todo
+#
 # This work is free. You can redistribute it and/or modify it under the
 # terms of the Do What The Fuck You Want To Public License, Version 2,
 # as published by Sam Hocevar. See the COPYING file for more details.
 
-
+# Color Cheat Sheet WHEN USING MONOKAI
+#
+# GREY    = comment.line
+# RED     = keyword.control / markup.deleted / bold: keyword.control
+# ORANGE  = italic: variable.parameter
+# YELLOW  = string.quoted.double.json
+# WHITE   = keyword.operator
+# GREEN   = entity.name / markup.inserted
+# BLUE    = variable.function / italic: storage.type
+# PURPLE  = constant.numeric
+#
+# BOLD    = markup.heading
+# ITALIC  = markup.italic
+#
+# See http://www.sublimetext.com/docs/3/syntax.html
+#
 name: TODO
 file_extensions: [txt]
 scope: source.json
@@ -54,6 +71,14 @@ contexts:
       captures:
         1: keyword.control
       push: task_semi_done
+    # And with a ! they are very important
+    # - Highlight brackets
+    # - Red !
+    # - Entire line will be blue or purple or someting
+    - match: '\[(\!)\]'
+      captures:
+        1: string.quoted.double.json
+      push: task_important
 
     # Start of a day
     # Datestamp will be purple, the rest is italic
@@ -98,6 +123,10 @@ contexts:
     - meta_scope: string.quoted.double.json
     - match: .
       push: semi_done_eol
+    - match: $
+      pop: true
+  subtask_important:
+    - meta_scope: markup.deleted
     - match: $
       pop: true
 
@@ -145,6 +174,9 @@ contexts:
     - match: '^(\s{4}|\t)*\?'
       scope: keyword.control
       push: subtask_semi_done
+    - match: '^(\s{4}|\t)*\!'
+      scope: keyword.control
+      push: subtask_important
     - include: timestamp_line
     - include: end_task_scope
 
@@ -165,18 +197,44 @@ contexts:
     - match: '^(\s{4}|\t)*\?'
       scope: keyword.control
       push: subtask_semi_done
+    - match: '^(\s{4}|\t)*\!'
+      scope: keyword.control
+      push: subtask_important
+    - include: timestamp_line
+    - include: end_task_scope
+
+  task_important:
+    - meta_scope: keyword.control
+    - match: '^(\s{4}|\t)*-'
+      scope: entity.name
+      push: subtask_open
+    - match: '^(\s{4}|\t)*x'
+      scope: keyword.control
+      push: subtask_canceled
+    - match: '^(\s{4}|\t)*v'
+      scope: entity.name
+      push: subtask_done
+    - match: '^(\s{4}|\t)*~'
+      scope: constant.numeric
+      push: subtask_semi_done
+    - match: '^(\s{4}|\t)*\?'
+      scope: keyword.control
+      push: subtask_semi_done
+    - match: '^(\s{4}|\t)*\!'
+      scope: keyword.control
+      push: subtask_important
     - include: timestamp_line
     - include: end_task_scope
 
   task_done:
     - meta_scope: comment.line
-    - match: '^(\s{4}|\t)*[\-xv~]'
+    - match: '^(\s{4}|\t)*[\-xv~?!]'
       push: subtask_done
     - include: end_task_scope
 
   task_canceled:
     - meta_scope: comment.block
-    - match: '^(\s{4}|\t)*[\-xv~]'
+    - match: '^(\s{4}|\t)*[\-xv~?!]'
       scope: keyword.control
       push: subtask_canceled
     - include: end_task_scope

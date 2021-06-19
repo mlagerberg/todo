@@ -1,0 +1,33 @@
+syntax "todo" "\.txt$"
+
+# Copyright © 2020-2021 Mathijs Lagerberg
+# This work is free. You can redistribute it and/or modify it under the
+# terms of the Do What The Fuck You Want To Public License, Version 2,
+# as published by Sam Hocevar. See the COPYING file for more details.
+#
+# Place this file in /usr/share/nano/ or /usr/local/share/nano (Mac)
+# to get simpified Todo syntax highlighting for .txt files in Nano 
+
+# Separators
+color red "^---*"
+color brightgreen "^===*"
+
+# Days
+color blue "^(ma|di|wo|do|vr|za|zo|Mon|Tue|Wed|Thu|Fri|Sat|Sun)[a-zA-Z]*"
+
+# Timestamps
+color cyan "^[0-9]{1,2}:[0-9]{2} \.*"
+
+# Task states
+color white "^\[\s\]s"
+color white "^\s{4}-\s"
+color green "^\[v\]\s"
+color green "^\s{4}v\s"
+color red "^\[x\]\s"
+color red "^\s{4}x\s"
+color red "^\[\!\]\s"
+color red "^\s{4}\!\s"
+color yellow "^[~\]\s"
+color yellow "^\s{4}~\s"
+color yellow "^[\?\]\s"
+color yellow "^\s{4}\?\s"
