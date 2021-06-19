@@ -1,0 +1,111 @@
+
+
+=== sample_date.png ===
+
+Tue 5
+[ ] Clean the kitchen
+
+Mon 4 April
+[ ] Do a thing
+
+Sun 3 - weekend!
+[ ] make a list
+[v] check it twice
+[v] all of it
+
+
+
+
+
+
+
+
+
+=== sample_group.png ===
+
+=== BUCKET LIST ===
+
+[ ] See the northern lights
+[v] Watch Tiger King
+
+=====================================
+
+=== TO DO for 2021 ===
+
+[ ] have fun
+[ ] separate each week, or month, or day, etc. with a line of dashes:
+
+-------------------------------------
+
+[ ] ignore the length of the line
+[ ] anything over 3 characters will highlight
+
+
+
+
+
+=== sample_main.png ===
+
+[ ] This task is open
+[v] With a checkmark (v), the task is completed
+[x] Crossed out with an x means: this task is canceled
+[~] A squigly line: partly done, 'good enough', finished but untested, etc.
+[?] With a question mark, it is not certain if the task is still relevant. Skip it?
+[!] Exclamation marks make everything at least twice as important.
+
+
+
+
+
+=== sample_subtask_state.png ===
+
+[x] Canceling the main task
+	v (when using Sublime Text)
+	- crossed out all subtasks too
+[v] And completing the main task
+	- completes the subtasks
+	x completely
+	~ whether done, crossed, or open.
+[~] But partially completing the main task
+	- highlights the open tasks in yellow
+	v and completes only the closed subtasks
+
+
+
+
+
+
+=== sample_subtask.png ===
+
+[ ] Each task can have subtasks as well:
+	- with a simple dash, as a bullet point of sorts
+	v of course that dash can be changed into a checkmark
+	x or a cross, if canceled
+	~ a tilde when partially done
+	? or a question mark
+	! or exclamation, however you see fit.
+
+
+
+
+
+=== sample_time.png ===
+
+[ ] Check email
+[ ] 11:00 Stand-up meeting
+[ ] 15:00 - 18:00 Package delivery
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,24 +1,29 @@
 %YAML 1.2
 ---
 
-# Copyright © 2020 Mathijs Lagerberg
+# Copyright © 2020-2021 Mathijs Lagerberg
+# https://github.com/mlagerberg/todo
+#
 # This work is free. You can redistribute it and/or modify it under the
 # terms of the Do What The Fuck You Want To Public License, Version 2,
 # as published by Sam Hocevar. See the COPYING file for more details.
 
-# Cheat sheet:
-# - red:    markup.deleted
-# - orange:  ?
-# - yellow: string.quoted.double.json
-# - green:  entity.name or markup.inserted
-# - blue:   variable.function
-# - purple: constant.numeric
-# - grey:   comment.line
-# 
-# - red & bold:   keyword.control
-# - italic:       markup.italic
+# Color Cheat Sheet WHEN USING MONOKAI
 #
-
+# GREY    = comment.line
+# RED     = keyword.control / markup.deleted / bold: keyword.control
+# ORANGE  = italic: variable.parameter
+# YELLOW  = string.quoted.double.json
+# WHITE   = keyword.operator
+# GREEN   = entity.name / markup.inserted
+# BLUE    = variable.function / italic: storage.type
+# PURPLE  = constant.numeric
+#
+# BOLD    = markup.heading
+# ITALIC  = markup.italic
+#
+# See http://www.sublimetext.com/docs/3/syntax.html
+#
 name: TODO
 file_extensions: [txt]
 scope: source.json

@@ -33,7 +33,7 @@ Keep reading for the specs below, or jump straight to a [complete example](./exa
 
 # Sublime Text highlighter
 
-This repo includes a syntax file for Sublime Text 3 which, when used with
+This repo includes a syntax file for Sublime Text 3 and 4 which, when used with
 the Monokai theme, nicely highlights items and greyes out completed task
 in a way that makes it easy to see the state of your task list at a glance.
 Installation instructions [below](#installation-instructions).
@@ -88,13 +88,17 @@ Tasks and subtasks alike can exist in several states:
 - open  (`[ ]`)
 - completed (`[v]`)
 - canceled (`[x]`)
+- very important (`[!]`)
 - may be canceled (`[?]`)
 - maybe completed (`[~]`)
 
-The first 3 speak for themselves, the other two indicate uncertainties. For example,
+The first four speak for themselves, the other two indicate uncertainties. For example,
 if you partially completed a task and are not sure yet if it is 'good enough',
 use the `~` tilde to change the color of the task to yellow: it's not greyed
 out yet, but it is highlighted so you can easily find it and go back to it.
+It is up to you how you make this workflow work for you. For me, I use the tilde
+to indicate I can move on to the next task but should not forget to get back to
+it later the same day. For example to test if the bug I fixed is really fixed.
 
 ![Example of task states](example_images/sample_main.png)
 
@@ -148,7 +152,7 @@ On Windows, to `C:\Users\{username}\AppData\Roaming\Sublime Text 3\Packages\User
 # License
 
 ```
-Copyright © 2020 Mathijs Lagerberg
+Copyright © 2020-2021 Mathijs Lagerberg
 This work is free. You can redistribute it and/or modify it under the
 terms of the Do What The Fuck You Want To Public License, Version 2,
 as published by Sam Hocevar. See the COPYING file for more details.
