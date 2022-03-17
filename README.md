@@ -144,7 +144,7 @@ look like this:
 
 The syntax highlighter is not in the Sublime package thing yet.
 
-On Mac, you can copy the `todo.sublime-syntax` file to `/Library/Application Support/Sublime Text 3/Packages/User/`.
+On Mac, you can copy the `todo.sublime-syntax` file to `~/Library/Application Support/Sublime Text 3/Packages/User/`.
 
 On Windows, to `C:\Users\{username}\AppData\Roaming\Sublime Text 3\Packages\User\`.
 
@@ -152,7 +152,7 @@ On Windows, to `C:\Users\{username}\AppData\Roaming\Sublime Text 3\Packages\User
 # License
 
 ```
-Copyright © 2020-2021 Mathijs Lagerberg
+Copyright © 2020-2022 Mathijs Lagerberg
 This work is free. You can redistribute it and/or modify it under the
 terms of the Do What The Fuck You Want To Public License, Version 2,
 as published by Sam Hocevar. See the COPYING file for more details.
