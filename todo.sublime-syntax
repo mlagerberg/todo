@@ -250,6 +250,7 @@ contexts:
     - include: urls
     - include: bold
     - include: italic
+    - include: name
   quote:
     - match: '^\s*>'
       scope: comment.line
@@ -271,3 +272,6 @@ contexts:
   urls:
     - match: '[^\s]+://[^\s]+'
       scope: markup.underline.link
+  name:
+    - match: '@[a-zA-Z0-9]+'
+      scope: variable.language.python
