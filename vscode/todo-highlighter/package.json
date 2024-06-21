@@ -1,0 +1,25 @@
+{
+  "name": "todo-highlighter",
+  "displayName": "TODO Highlighter",
+  "description": "Syntax highlighting for TODO files",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "todo",
+      "aliases": ["TODO", "todo"],
+      "extensions": [".txt"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "todo",
+      "scopeName": "source.todo",
+      "path": "./syntaxes/todo.tmLanguage.json"
+    }]
+  }
+}
