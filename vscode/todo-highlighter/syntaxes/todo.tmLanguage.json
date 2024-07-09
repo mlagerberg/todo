@@ -86,6 +86,21 @@
 					"include": "#subtask_open"
 				},
 				{
+					"include": "#subtask_done"
+				},
+				{
+					"include": "#subtask_canceled"
+				},
+				{
+					"include": "#subtask_semi_done"
+				},
+				{
+					"include": "#subtask_question"
+				},
+				{
+					"include": "#subtask_important"
+				},
+				{
 					"include": "#body_text"
 				}
 			]
@@ -101,7 +116,7 @@
 			},
 			"patterns": [
 				{
-					"include": "#subtask_done"
+					"include": "#subtask_all"
 				},
 				{
 					"include": "#body_text"
@@ -119,7 +134,7 @@
 			},
 			"patterns": [
 				{
-					"include": "#subtask_canceled"
+					"include": "#subtask_all"
 				},
 				{
 					"include": "#body_text"
@@ -137,7 +152,7 @@
 			},
 			"patterns": [
 				{
-					"include": "#subtask_semi_done"
+					"include": "#subtask_all"
 				},
 				{
 					"include": "#body_text"
@@ -155,7 +170,7 @@
 			},
 			"patterns": [
 				{
-					"include": "#subtask_question"
+					"include": "#subtask_all"
 				},
 				{
 					"include": "#body_text"
@@ -173,7 +188,7 @@
 			},
 			"patterns": [
 				{
-					"include": "#subtask_important"
+					"include": "#subtask_all"
 				},
 				{
 					"include": "#body_text"
@@ -181,64 +196,76 @@
 			]
 		},
 		"subtask_open": {
-			"match": "^(\\s+)(-|x|v|~|\\?|!)",
+			"match": "^(\\s+)(-)",
 			"captures": {
 				"2": {
-					"patterns": [
-						{
-							"include": "#subtask_markers"
-						}
-					]
+					"name": "entity.name"
 				}
 			}
 		},
 		"subtask_done": {
-			"match": "^(\\s+)(-|x|v|~|\\?|!)",
-			"name": "comment.line"
+			"match": "^(\\s+)(-)?(v).*$",
+			"name": "comment.line",
+			"captures": {
+				"2": {
+					"name": "entity.name"
+				},
+				"3": {
+					"name": "entity.name"
+				}
+			}
 		},
 		"subtask_canceled": {
-			"match": "^(\\s+)(-|x|v|~|\\?|!)",
-			"name": "comment.block"
+			"match": "^(\\s+)(-)?(x).*$",
+			"name": "comment.block",
+			"captures": {
+				"2": {
+					"name": "entity.name"
+				},
+				"3": {
+					"name": "keyword.control"
+				}
+			}
 		},
 		"subtask_semi_done": {
-			"match": "^(\\s+)(-|x|v|~|\\?|!)",
-			"name": "string.quoted.double.json"
+			"match": "^(\\s+)(-)?(~).*$",
+			"name": "string.quoted.double.json",
+			"captures": {
+				"2": {
+					"name": "entity.name"
+				},
+				"3": {
+					"name": "constant.numeric"
+				}
+			}
 		},
 		"subtask_question": {
-			"match": "^(\\s+)(-|x|v|~|\\?|!)",
-			"name": "string.quoted.double.json"
+			"match": "^(\\s+)(-)?(\\?).*$",
+			"name": "string.quoted.double.json",
+			"captures": {
+				"2": {
+					"name": "entity.name"
+				},
+				"3": {
+					"name": "keyword.control"
+				}
+			}
 		},
 		"subtask_important": {
-			"match": "^(\\s+)(-|x|v|~|\\?|!)",
-			"name": "keyword.control"
-		},
-		"subtask_markers": {
-			"patterns": [
-				{
-					"match": "-",
-					"name": "comment.line"
+			"match": "^(\\s+)(-)?(!).*$",
+			"name": "keyword.control",
+			"captures": {
+				"2": {
+					"name": "entity.name"
 				},
-				{
-					"match": "v",
-					"name": "comment.line"
-				},
-				{
-					"match": "x",
-					"name": "keyword.control"
-				},
-				{
-					"match": "~",
-					"name": "string.quoted.double.json"
-				},
-				{
-					"match": "\\?",
-					"name": "keyword.control"
-				},
-				{
-					"match": "!",
+				"3": {
 					"name": "string.quoted.double.json"
 				}
-			]
+			}
+		},
+		"subtask_all": {
+			"match": "^(\\s+)(-|x|v|~|\\?|!).*$",
+			"name": "comment.line"
 		},
 		"day_separators": {
 			"patterns": [
