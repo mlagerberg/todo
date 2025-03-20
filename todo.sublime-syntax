@@ -20,7 +20,7 @@
 #
 
 name: TODO
-file_extensions: [txt]
+file_extensions: [txt, todo.txt]
 scope: source.json
 contexts:
   main:
