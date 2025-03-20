@@ -16,13 +16,13 @@
 
 === TO DO for 2020 ===
 
-Sat 23 May - weekend!
+% Sat 23 May - weekend!
 [ ] do weekend stuff
 [ ] separate each week, or month, or day, etc. with a line of dashes:
 
 --------------------------------------
 
-Tue 19 May
+% Tue 19 May
 [ ] This task is open
 [v] With a checkmark (v), the task is completed
 [x] Crossed out with an x means: this task is canceled
@@ -53,21 +53,21 @@ Tue 19 May
 	- 9:00-9:15 introductions
 	- 12:30-13:30 lunch
 
-Mon 18 May - Ascencion day
+% Mon 18 May - Ascencion day
 [ ] do this task today
 [ ] and this one
 [?] maybe this one too if the other two aren't enough
 
 --------------------------------------
 
-Sun 17 May
+% Sun 17 May
 [v] Get this task list up on Github
 [ ] Write a README
 	- list the pros
 	- list the cons
 	v write an example
 
-Sat 16 May - Some label
+% Sat 16 May - Some label
 [v] eventually, all your task lists
 [v] will look like this
 [v] greyed out, completed

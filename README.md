@@ -20,7 +20,7 @@ log of everything you've done.
 Here's a short example:
 
 ```
-Wed 20 May
+% Wed 20 May
 [ ] do this task today
 [v] this task is done
 [ ] this is an open task with sub-tasks
@@ -131,6 +131,10 @@ time this Tuesday, that's when you schedule it. Here's an example workflow:
 
 ![Example of using dates](example_images/sample_date.png)
 
+The current implementation also highlights lines starting with 'Mon', 'Tue', 'Wed' etc.,
+but this behaviour is deprecated in favour of a more international approach.
+Date indicators now start with a `%`.
+
 
 #### Time
 
@@ -152,7 +156,7 @@ On Windows, to `C:\Users\{username}\AppData\Roaming\Sublime Text 3\Packages\User
 # License
 
 ```
-Copyright © 2020-2022 Mathijs Lagerberg
+Copyright © 2020-2025 Mathijs Lagerberg
 This work is free. You can redistribute it and/or modify it under the
 terms of the Do What The Fuck You Want To Public License, Version 2,
 as published by Sam Hocevar. See the COPYING file for more details.
