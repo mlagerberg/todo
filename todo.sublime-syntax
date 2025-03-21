@@ -6,22 +6,10 @@
 # terms of the Do What The Fuck You Want To Public License, Version 2,
 # as published by Sam Hocevar. See the COPYING file for more details.
 
-# Cheat sheet:
-# - red:    markup.deleted
-# - orange:  ?
-# - yellow: string.quoted.double.json
-# - green:  entity.name or markup.inserted
-# - blue:   variable.function
-# - purple: constant.numeric
-# - grey:   comment.line
-#
-# - red & bold:   keyword.control
-# - italic:       markup.italic
-#
-
 name: TODO
-file_extensions: [txt, todo.txt]
-scope: source.json
+file_extensions: [txt,todo.txt]
+scope: text.todo
+
 contexts:
   main:
 
@@ -141,12 +129,16 @@ contexts:
       pop: true
 
   start_of_day:
+    - meta_scope: markup.bold
     - match: '\-'
       push: day_label
     - match: $
       pop: true
   day_label:
     - meta_scope: markup.italic
+    - include: timestamp
+    - include: name
+    - include: hashtag
     - match: $
       pop: true
 
@@ -259,6 +251,7 @@ contexts:
     - include: bold
     - include: italic
     - include: name
+    - include: hashtag
   quote:
     - match: '^\s*>'
       scope: comment.line
@@ -283,3 +276,6 @@ contexts:
   name:
     - match: '@[a-zA-Z0-9]+'
       scope: variable.language.python
+  hashtag:
+    - match: '#[a-zA-Z0-9]+'
+      scope: comment.line.
