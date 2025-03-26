@@ -278,4 +278,4 @@ contexts:
       scope: variable.language.python
   hashtag:
     - match: '#[a-zA-Z0-9]+'
-      scope: comment.line.
+      scope: comment.line
